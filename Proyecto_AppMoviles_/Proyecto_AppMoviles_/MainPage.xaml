@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_AppMoviles_.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Centro de Terapia de Lenguaje &#10;&quot;Hablame&quot;" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
+        </Frame>
+
+        <Entry x:Name="txtUsuario"  
+               VerticalOptions="Fill"
+               Placeholder="Ingrese su usuario" 
+               HorizontalOptions="Fill" 
+               HorizontalTextAlignment="Start" 
+               FontSize="18" 
+               Margin="20,60,20,0"/>
+        
+        <Entry x:Name="txtContraseña" 
+               Placeholder="Ingrese su contraseña" 
+               IsPassword="True" 
+               HorizontalOptions="Fill" 
+               HorizontalTextAlignment="Start" 
+               FontSize="18"
+               Margin="20,0,20,40"/>
+
+        <Button x:Name="btnIngresar" HorizontalOptions="CenterAndExpand" Text="Ingresar" Clicked="btnIngresar_Clicked" />
+
+        <Label FontSize="16" Margin="20,60,20,0" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="¿Eres usuario nuevo? "/>
+                        <Span x:Name="txtRegistro" Text="Registrate!" FontAttributes="Bold" TextColor="#2196F3">
+                            <Span.GestureRecognizers>
+
+                                <TapGestureRecognizer Command="{Binding TapRegistro}"></TapGestureRecognizer>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label x:Name="txtRecuperarCont" FontSize="16" Margin="20,10,20,0" IsTabStop="True">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="¿Olvidaste tu contraseña? "/>
+                        <Span x:Name="spanRecuperar" Text="Recuperar contraseña" FontAttributes="Bold" TextColor="#2196F3" >
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapRecuperar}"></TapGestureRecognizer>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        
+    </StackLayout>
+
+</ContentPage>
