@@ -9,9 +9,9 @@ namespace Proyecto_AppMoviles_
         public App()
         {
             InitializeComponent();
-            var logo = new Image { Source = "logocentordeterapia.jpg" };
+            Image logo = new Image { Source = "logocentordeterapia.jpg" };
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

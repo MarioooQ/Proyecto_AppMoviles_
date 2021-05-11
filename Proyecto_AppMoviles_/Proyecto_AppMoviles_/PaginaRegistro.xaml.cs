@@ -15,6 +15,11 @@ namespace Proyecto_AppMoviles_
         public PaginaRegistro()
         {
             InitializeComponent();
+            this.fechaNacimiento.MaximumDate=DateTime.Today;
         }
+    }
+    public class Genero
+    {
+        public string Name { get; set; }
     }
 }
