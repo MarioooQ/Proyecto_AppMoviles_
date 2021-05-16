@@ -21,7 +21,7 @@ namespace Proyecto_AppMoviles_
 
         private async void btnIngresar_Clicked(object sender, EventArgs e)
         {
-           // await App.Current.MainPage.Navigation.PushAsync(new MasterPage());
+           await App.Current.MainPage.Navigation.PushAsync(new PaginaInicio());
         }
 
 }
