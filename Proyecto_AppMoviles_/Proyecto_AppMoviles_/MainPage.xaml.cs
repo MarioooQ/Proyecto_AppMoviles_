@@ -19,9 +19,9 @@ namespace Proyecto_AppMoviles_
             BindingContext = new CommandTexto();
         }
 
-        private void btnIngresar_Clicked(object sender, EventArgs e)
+        private async void btnIngresar_Clicked(object sender, EventArgs e)
         {
-
+           // await App.Current.MainPage.Navigation.PushAsync(new MasterPage());
         }
 
 }

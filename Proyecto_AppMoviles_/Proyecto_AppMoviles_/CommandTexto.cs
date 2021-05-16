@@ -9,7 +9,7 @@ namespace Proyecto_AppMoviles_
 {
     public class CommandTexto
     {
-        public PaginaRegistro paginaRegistro = new PaginaRegistro();
+        public RegistroPerfil registroPerfil = new RegistroPerfil();
         public ICommand TapRecuperar { get; } = new Command(async () =>
         {
             await App.Current.MainPage.DisplayAlert("Texto presionado", "En desarrollo", "ok");
