@@ -4,9 +4,26 @@
              x:Class="Proyecto_AppMoviles_.PaginaPagos">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="MyListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <!--<Label x:Name="lblPK"
+                                   Text="{Binding PK_Paciente}"/>
+                                <Label x:Name="lblnombre"
+                                   Text="{Binding nombre}">
+                                </Label>
+                                <Label x:Name="lblapellido"
+                                   Text="{Binding apellido}">
+                                </Label>
+                                <Label x:Name="lblfecha"
+                                   Text="{Binding fechanacimiento}"/>-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

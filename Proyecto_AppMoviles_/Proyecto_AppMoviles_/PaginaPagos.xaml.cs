@@ -12,9 +12,10 @@ namespace Proyecto_AppMoviles_
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaPagos : ContentPage
     {
-        public PaginaPagos()
+        public PaginaPagos(int PK_Cita)
         {
             InitializeComponent();
         }
     }
+
 }

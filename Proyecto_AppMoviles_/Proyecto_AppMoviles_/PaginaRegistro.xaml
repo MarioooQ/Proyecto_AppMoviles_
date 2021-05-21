@@ -4,9 +4,12 @@
              x:Class="Proyecto_AppMoviles_.PaginaRegistro">
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="LogoCentro.png" HorizontalOptions="Center" Scale="0.5" Margin="10,-70,10,-70"/>
+            <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
+
             <Entry x:Name="txtUsuario" Placeholder="Ingrese su correo electrónico" Margin="10,0,10,0"/>
-            <Entry x:Name="txtContrasena" IsPassword="True" Placeholder="Ingrese su contrasseña" Margin="10,0,10,0"/>
+            <Entry x:Name="txtContrasena" IsPassword="True" Placeholder="Ingrese su contrasseña" Margin="10,0,10,0" IsSpellCheckEnabled="True"/>
+            <Entry x:Name="txtConfirmar" Placeholder="Confirme su contraseña" Margin="10,0,10,0"/>
+            <Button x:Name="btnRegistar" Text="Registrar usuario" HorizontalOptions="Center" Clicked="btnRegistar_Clicked"/>
             <ImageButton Source="LineaDivision.png" HorizontalOptions="CenterAndExpand" Margin="10,50,10,0"/>
             <ImageButton x:Name="btnIngresarGoogle" Clicked="btnIngresarGoogle_Clicked" Source="GoogleLogin.png" Scale="0.7"/>
         </StackLayout>

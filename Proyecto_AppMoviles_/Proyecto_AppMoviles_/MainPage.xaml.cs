@@ -21,6 +21,7 @@ namespace Proyecto_AppMoviles_
 
         private async void btnIngresar_Clicked(object sender, EventArgs e)
         {
+            if (txtUsuario.Text != "") ;
            await App.Current.MainPage.Navigation.PushAsync(new PaginaInicio());
         }
 

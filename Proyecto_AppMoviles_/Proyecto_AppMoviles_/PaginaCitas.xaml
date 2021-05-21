@@ -4,9 +4,74 @@
              x:Class="Proyecto_AppMoviles_.PaginaCitas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Grid Margin="10,20,10,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+
+
+                <ImageButton Grid.Column="1"
+                                 Grid.Row="0"
+                                 x:Name="btnAgendarCita" 
+                                 Source="agendar.png" 
+                                 Clicked="btnAgendarCita_Clicked"
+                                 BackgroundColor="White"/>
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       x:Name="btnActualizar" 
+                       Text="Agendar una cita"
+                       FontSize="18"
+                       TextColor="Black"/>
+            </Grid>
+            <ListView x:Name="MyListView" ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding fechaCita}"
+                                           FontSize="16"
+                                           TextColor="Black"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="2"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           />
+
+                                    <ImageButton Source="pagar"
+                                                 x:Name="btnPagar"
+                                                 Grid.Column="0"
+                                                 Grid.Row="1"
+                                                 Clicked="btnPagar_Clicked"/>
+                                    <ImageButton Source="eliminar.jpg"
+                                                 x:Name="btnEliminar"
+                                                 Grid.Column="1"
+                                                 Grid.Row="1"
+                                                 Clicked="btnEliminar_Clicked"/>
+
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

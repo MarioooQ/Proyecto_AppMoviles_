@@ -35,9 +35,9 @@ namespace Proyecto_AppMoviles_
                 {
                     new PaginaInicioFlyoutMenuItem { Id = 0, Title = "Perfil" },
                     new PaginaInicioFlyoutMenuItem { Id = 1, Title = "Citas" },
-                    new PaginaInicioFlyoutMenuItem { Id = 2, Title = "Pagos" },
-                    new PaginaInicioFlyoutMenuItem { Id = 3, Title = "Contacto" },
-                    new PaginaInicioFlyoutMenuItem { Id = 4, Title = "Cerrar sesión" },
+                    //new PaginaInicioFlyoutMenuItem { Id = 2, Title = "Pagos" },
+                    new PaginaInicioFlyoutMenuItem { Id = 2, Title = "Contacto" },
+                    new PaginaInicioFlyoutMenuItem { Id = 3, Title = "Cerrar sesión" },
                 });
             }
 

@@ -15,12 +15,12 @@ namespace Proyecto_AppMoviles_
     public partial class PaginaRegistro : ContentPage
     {
         Account account;
-        AccountStore store;
+        //AccountStore store;
         public PaginaRegistro()
         {
             InitializeComponent();
             this.Title = "Registro";
-            store = AccountStore.Create();
+            //store = AccountStore.Create();
 
         }
 
@@ -42,7 +42,7 @@ namespace Proyecto_AppMoviles_
                     break;
             }
 
-            account = store.FindAccountsForService(AppConstant.Constants.AppName).FirstOrDefault();
+            //account = store.FindAccountsForService(AppConstant.Constants.AppName).FirstOrDefault();
 
             var authenticator = new OAuth2Authenticator(
                 clientId,
@@ -94,7 +94,7 @@ namespace Proyecto_AppMoviles_
 
                 }
 
-                await store.SaveAsync(account = e.Account, AppConstant.Constants.AppName);
+                //await store.SaveAsync(account = e.Account, AppConstant.Constants.AppName);
                 await DisplayAlert("Email address", user.Email, "OK");
             }
         }
@@ -110,5 +110,9 @@ namespace Proyecto_AppMoviles_
             Debug.WriteLine("Authentication error: " + e.Message);
         }
 
+        private void btnRegistar_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,31 @@ namespace Proyecto_AppMoviles_
         {
             InitializeComponent();
         }
+
+        private void btnAgendarCita_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private async void btnPagar_Clicked(object sender, EventArgs e)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new PaginaPagos(1));
+        }
+
+        private async void btnEliminar_Clicked(object sender, EventArgs e)
+        {
+            string opcion= await App.Current.MainPage.DisplayPromptAsync("Eliminar", "¿Seguro desea eliminar su cita", "Aceptar", "Cancelar");
+            
+            if (opcion.Equals("Aceptar"))
+            {
+
+            }
+
+        }
     }
 }

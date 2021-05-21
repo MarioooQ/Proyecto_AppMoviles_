@@ -4,163 +4,163 @@
              x:Class="Proyecto_AppMoviles_.RegistroPerfil">
     
     <ContentPage.Content>
-        <ScrollView VerticalScrollBarVisibility="Default">
-            <Grid Margin="10,40,10,0" >
-                <Grid.RowDefinitions>
+        <StackLayout>
+            <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <ScrollView VerticalScrollBarVisibility="Default">
+                <Grid Margin="10,10,10,0" >
+                    <Grid.RowDefinitions>
 
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
 
-                </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
 
-                </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>
 
-                <!--Primera fila -->
-                <Label Text="Aqui va una imagen" 
-                       HorizontalTextAlignment="Center" 
-                       TextColor="Black" 
-                       FontSize="24"
-                       Grid.Column="0"
-                       Grid.Row="0"
-                       Grid.ColumnSpan="2"/>
-                
-                <!--Segunda fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="1"
-                       Text="Ingrese su nombre:"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtNombre"
+                    <!--Primera fila -->
+                    <ImageButton Grid.Column="0"
+                                 Grid.Row="0"
+                                 x:Name="btnEditarPerfil" 
+                                 Source="editar.png" 
+                                 Clicked="btnEditarPerfil_Clicked"
+                                 BackgroundColor="White"/>
+                    <ImageButton Grid.Column="1"
+                                 Grid.Row="0"
+                                 HorizontalOptions="Start"
+                                 x:Name="btnActualizar" 
+                                 Source="actualizar.png" 
+                                 Clicked="btnActualizar_Clicked"
+                                 BackgroundColor="White"/>
+                    <!--Segunda fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Grid.RowSpan="2"
+                           Source="user.png"/>
+                    
+                    <Entry x:Name="txtNombre"
                            Grid.Column="1"
                            Grid.Row="1"
                            Keyboard="Text"
                            Placeholder="Nombre" />
-                
-                <!--Tercera fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="2"
-                       Text="Ingrese su apellido:"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtApelldio"
+
+                    <!--Tercera fila -->
+
+                    <Entry x:Name="txtApellido"
                            Grid.Column="1"
                            Grid.Row="2"
                            Keyboard="Text"
                            Placeholder="Apellido" />
-                
-                <!--Cuarta fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="3"
-                       Text="Ingrese su identificación:"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtIdentificacion"
+
+                    <!--Cuarta fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="3"
+                           Source="tarjetadeidentificacion.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Entry x:Name="txtIdentificacion"
                            Grid.Column="1"
                            Grid.Row="3"
                            Keyboard="Text"
-                           Placeholder="Cédula o pasaporte" />
-                
-                <!--Quinta fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="4"
-                       Text="Fecha de nacimiento"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <DatePicker x:Name="fechaNacimiento"
-                            MinimumDate="01/01/1900"
-                            Grid.Column="1"
-                            Grid.Row="4"
-                            FontSize="16"
-                            TextColor="Black"/>
-                
-                <!--Sexta fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="5"
-                       Text="Escoja su genero:"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Picker x:Name="pkrGenero"
-                        Grid.Column="1"
-                        Grid.Row="5">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Femenino</x:String>
-                            <x:String>Masculino</x:String>
-                            <x:String>No binario</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                           Placeholder="Identificación" />
 
-                <!--Septima fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="6"
-                       Text="Direccion:"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtDireccion"
+                    <!--Quinta fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="4"
+                           Source="calendario.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <DatePicker x:Name="fechaNacimiento"
+                                MinimumDate="01/01/1900"
+                                Grid.Column="1"
+                                Grid.Row="4"
+                                FontSize="16"
+                                TextColor="Black"
+                                />
+
+                    <!--Sexta fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="5"
+                           Source="generos.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Picker x:Name="pkrGenero"
+                            Grid.Column="1"
+                            Grid.Row="5"
+                            Title="Seleccione su genero">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Femenino</x:String>
+                                <x:String>Masculino</x:String>
+                                <x:String>No binario</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!--Septima fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="6"
+                           Source="marcadordeposicion.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Entry x:Name="txtDireccion"
                            Grid.Column="1"
                            Grid.Row="6"
                            Keyboard="Text"
                            Placeholder="Aquí va con mapa" />
-                
-                <!--Octava fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="7"
-                       Text="Telefono móvil"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtTelefono"
+
+                    <!--Octava fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="7"
+                           Source="telefonointeligente.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Entry x:Name="txtTelefono"
                            Grid.Column="1"
                            Grid.Row="7"
                            Keyboard="Numeric"
-                           Placeholder="0999999999" />
-                
-                <!--Novena fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="8"
-                       Text="¿Tiene alergias?"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtAlergias"
+                           Placeholder="Teléfono" />
+
+                    <!--Novena fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="8"
+                           Source="carpeta.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Entry x:Name="txtAlergias"
                            Grid.Column="1"
                            Grid.Row="8"
                            Keyboard="Text"
-                           Placeholder="Alergias" />
-                
-                <!--Decima fila -->
-                <Label Grid.Column="0"
-                       Grid.Row="9"
-                       Text="Enfermedades crónicas"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Center"
-                       FontSize="16"/>
-                <Entry x:Name="txtEFC"
+                           Placeholder="¿Tiene alergias?" />
+
+                    <!--Decima fila -->
+                    <Image Grid.Column="0"
+                           Grid.Row="9"
+                           Source="carpeta.png"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Entry x:Name="txtEFC"
                            Grid.Column="1"
                            Grid.Row="9"
                            Keyboard="Text"
-                           Placeholder="Enfermedades crónicas" />
+                           Placeholder="¿Tiene enfermedades crónicas?" />
 
-            </Grid>
-        </ScrollView>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
