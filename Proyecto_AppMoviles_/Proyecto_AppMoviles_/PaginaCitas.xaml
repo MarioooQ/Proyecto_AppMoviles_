@@ -21,7 +21,9 @@
                                  x:Name="btnAgendarCita" 
                                  Source="agendar.png" 
                                  Clicked="btnAgendarCita_Clicked"
-                                 BackgroundColor="White"/>
+                                 BackgroundColor="White"
+                             BorderColor="Black"
+                             BorderWidth="1.2"/>
                 <Label Grid.Column="0"
                        Grid.Row="0"
                        HorizontalOptions="Start"
@@ -38,7 +40,7 @@
                             <StackLayout>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40" />
                                         <RowDefinition Height="40"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>

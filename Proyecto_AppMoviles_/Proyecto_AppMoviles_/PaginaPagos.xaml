@@ -1,29 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Proyecto_AppMoviles_.PaginaPagos">
+             x:Class="Proyecto_AppMoviles_.PaginaPagos"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="MyListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout >
-                                <!--<Label x:Name="lblPK"
-                                   Text="{Binding PK_Paciente}"/>
-                                <Label x:Name="lblnombre"
-                                   Text="{Binding nombre}">
-                                </Label>
-                                <Label x:Name="lblapellido"
-                                   Text="{Binding apellido}">
-                                </Label>
-                                <Label x:Name="lblfecha"
-                                   Text="{Binding fechanacimiento}"/>-->
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Agregar pago"
+                        x:Name="btnAgregarPago"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Clicked="btnAgregarPago_Clicked"
+                        Grid.Row="0"
+                        Grid.Column="0"/>
+                <Button Text="Regresar"
+                        x:Name="btnSalir"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Clicked="btnSalir_Clicked"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

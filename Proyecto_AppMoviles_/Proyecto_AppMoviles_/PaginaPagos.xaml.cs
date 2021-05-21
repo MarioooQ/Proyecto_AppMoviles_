@@ -9,13 +9,23 @@ using Xamarin.Forms.Xaml;
 
 namespace Proyecto_AppMoviles_
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaPagos : ContentPage
     {
         public PaginaPagos(int PK_Cita)
         {
             InitializeComponent();
         }
+
+        private void btnAgregarPago_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
+
 
 }

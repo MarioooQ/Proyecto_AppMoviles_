@@ -5,7 +5,7 @@
 
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Centro de Terapia de Lenguaje &#10;&quot;Hablame&quot;" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
+            <Label Text="Centro de Terapia de Lenguaje &#10;&quot;Háblame&quot;" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
         </Frame>
 
         <Entry x:Name="txtUsuario"  
@@ -42,7 +42,7 @@
             </Label.FormattedText>
         </Label>
 
-        <Label x:Name="txtRecuperarCont" FontSize="16" Margin="20,10,20,0" IsTabStop="True">
+        <!--<Label x:Name="txtRecuperarCont" FontSize="16" Margin="20,10,20,0" IsTabStop="True">
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
@@ -55,7 +55,7 @@
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>
-        </Label>
+        </Label>-->
         
     </StackLayout>
 

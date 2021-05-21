@@ -33,11 +33,12 @@ namespace Proyecto_AppMoviles_
             {
                 MenuItems = new ObservableCollection<PaginaInicioFlyoutMenuItem>(new[]
                 {
-                    new PaginaInicioFlyoutMenuItem { Id = 0, Title = "Perfil" },
-                    new PaginaInicioFlyoutMenuItem { Id = 1, Title = "Citas" },
+                    new PaginaInicioFlyoutMenuItem {Id=0, Title="Inicio"},
+                    new PaginaInicioFlyoutMenuItem { Id = 1, Title = "Perfil" },
+                    new PaginaInicioFlyoutMenuItem { Id = 2, Title = "Citas" },
                     //new PaginaInicioFlyoutMenuItem { Id = 2, Title = "Pagos" },
-                    new PaginaInicioFlyoutMenuItem { Id = 2, Title = "Contacto" },
-                    new PaginaInicioFlyoutMenuItem { Id = 3, Title = "Cerrar sesión" },
+                    new PaginaInicioFlyoutMenuItem { Id = 3, Title = "Contacto" },
+                    new PaginaInicioFlyoutMenuItem { Id = 4, Title = "Cerrar sesión" }
                 });
             }
 

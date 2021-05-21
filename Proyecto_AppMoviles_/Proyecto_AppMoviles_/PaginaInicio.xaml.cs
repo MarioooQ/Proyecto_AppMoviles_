@@ -27,14 +27,17 @@ namespace Proyecto_AppMoviles_
             switch (item.Id)
             {
                 case 0:
-                    Detail = new NavigationPage(new RegistroPerfil());
+                    Detail = new NavigationPage(new PaginaInicioDetail());
                     break;
                 case 1:
-                    Detail = new NavigationPage(new PaginaCitas());
+                    Detail = new NavigationPage(new RegistroPerfil());
                     break;
                 case 2:
-                    Detail = new NavigationPage(new PaginaPagos());
+                    Detail = new NavigationPage(new PaginaCitas());
                     break;
+                /*case 2:
+                    Detail = new NavigationPage(new PaginaPagos(1));
+                    break;*/
                 case 3:
                     Detail = new NavigationPage(new PaginaContacto());
                     break;

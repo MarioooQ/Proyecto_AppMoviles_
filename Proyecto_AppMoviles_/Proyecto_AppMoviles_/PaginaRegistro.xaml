@@ -7,11 +7,11 @@
             <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
 
             <Entry x:Name="txtUsuario" Placeholder="Ingrese su correo electrónico" Margin="10,0,10,0"/>
-            <Entry x:Name="txtContrasena" IsPassword="True" Placeholder="Ingrese su contrasseña" Margin="10,0,10,0" IsSpellCheckEnabled="True"/>
-            <Entry x:Name="txtConfirmar" Placeholder="Confirme su contraseña" Margin="10,0,10,0"/>
-            <Button x:Name="btnRegistar" Text="Registrar usuario" HorizontalOptions="Center" Clicked="btnRegistar_Clicked"/>
-            <ImageButton Source="LineaDivision.png" HorizontalOptions="CenterAndExpand" Margin="10,50,10,0"/>
-            <ImageButton x:Name="btnIngresarGoogle" Clicked="btnIngresarGoogle_Clicked" Source="GoogleLogin.png" Scale="0.7"/>
+                <Entry x:Name="txtContrasena" IsPassword="True" Placeholder="Ingrese su contraseña" Margin="10,0,10,0" IsSpellCheckEnabled="True"/>
+                <Entry x:Name="txtConfirmar" Placeholder="Confirme su contraseña" Margin="10,0,10,0"/>
+                <Button x:Name="btnRegistar" Text="Registrar usuario" HorizontalOptions="Center" Clicked="btnRegistar_Clicked"/>
+                <Image Source="LineaDivision.png" HorizontalOptions="CenterAndExpand" Margin="10,50,10,0"/>
+                <ImageButton x:Name="btnIngresarGoogle" Clicked="btnIngresarGoogle_Clicked" Source="GoogleLogin.png" Scale="0.7"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

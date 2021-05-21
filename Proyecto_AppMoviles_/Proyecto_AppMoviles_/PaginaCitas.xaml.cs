@@ -15,11 +15,12 @@ namespace Proyecto_AppMoviles_
         public PaginaCitas()
         {
             InitializeComponent();
+
         }
 
-        private void btnAgendarCita_Clicked(object sender, EventArgs e)
+        private async void btnAgendarCita_Clicked(object sender, EventArgs e)
         {
-
+            await App.Current.MainPage.Navigation.PushAsync(new PaginaRegistrarCita());
         }
 
         void OnSelection(object sender, SelectedItemChangedEventArgs e)
@@ -34,8 +35,8 @@ namespace Proyecto_AppMoviles_
 
         private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
-            string opcion= await App.Current.MainPage.DisplayPromptAsync("Eliminar", "¿Seguro desea eliminar su cita", "Aceptar", "Cancelar");
-            
+            string opcion = await App.Current.MainPage.DisplayPromptAsync("Eliminar", "¿Seguro desea eliminar su cita", "Aceptar", "Cancelar");
+
             if (opcion.Equals("Aceptar"))
             {
 

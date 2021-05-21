@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_AppMoviles_.PaginaRegistrarCita"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Grid Margin="10,10,10,0" >
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="dpFechaCita"
+                            Grid.Column="1"
+                            Grid.Row="0"/>
+                <Image Source="calendario.png"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+                <Picker x:Name="pkHoraCita"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Title="Seleccione la hora">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>08:00</x:String>
+                            <x:String>09:00</x:String>
+                            <x:String>10:00</x:String>
+                            <x:String>11:00</x:String>
+                            <x:String>14:00</x:String>
+                            <x:String>15:00</x:String>
+                            <x:String>16:00</x:String>
+                            <x:String>17:00</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Image Source="reloj.png"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+                <Entry Placeholder="Razón de la cita"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
+                <Image Source="carpeta.png"
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+            </Grid>
+            <Grid Margin="10,-100,10,0" >
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="40"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnGuardarCita"
+                        Text="Guardar cita"
+                        Clicked="btnGuardarCita_Clicked"
+                        Grid.Column="1"
+                        Grid.Row="3"/>
+                <Button x:Name="btnRegresar"
+                        Text="Regresar"
+                        Clicked="btnRegresar_Clicked"
+                        Grid.Column="0"
+                        Grid.Row="3"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

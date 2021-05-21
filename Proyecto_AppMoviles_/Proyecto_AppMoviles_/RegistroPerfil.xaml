@@ -75,7 +75,7 @@
                            Grid.Column="1"
                            Grid.Row="3"
                            Keyboard="Text"
-                           Placeholder="Identificación" />
+                           Placeholder="Cédula/Pasaporte" />
 
                     <!--Quinta fila -->
                     <Image Grid.Column="0"
@@ -100,7 +100,7 @@
                     <Picker x:Name="pkrGenero"
                             Grid.Column="1"
                             Grid.Row="5"
-                            Title="Seleccione su genero">
+                            Title="Seleccione su género">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Femenino</x:String>

@@ -9,6 +9,7 @@ namespace Proyecto_AppMoviles_.Model
         private int PK_cita;
         private int PK_paciente;
         private string fechaCita; //datetime
+        private string razon;
         private string pago; //blob
         bool estado;
     }
