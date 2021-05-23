@@ -83,7 +83,7 @@
                            Source="calendario.png"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
-                    <DatePicker x:Name="fechaNacimiento"
+                    <DatePicker x:Name="dpFechaNacimiento"
                                 MinimumDate="01/01/1900"
                                 Grid.Column="1"
                                 Grid.Row="4"
