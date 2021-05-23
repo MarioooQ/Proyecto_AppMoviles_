@@ -16,7 +16,7 @@
                FontSize="18" 
                Margin="20,60,20,0"/>
         
-        <Entry x:Name="txtContraseña" 
+        <Entry x:Name="txtContrasena" 
                Placeholder="Ingrese su contraseña" 
                IsPassword="True" 
                HorizontalOptions="Fill" 

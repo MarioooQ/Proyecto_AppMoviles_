@@ -10,7 +10,7 @@ namespace Proyecto_AppMoviles_
         {
             InitializeComponent();
             Image logo = new Image { Source = "logocentordeterapia.jpg" };
-
+            
             MainPage = new NavigationPage(new MainPage());
         }
 

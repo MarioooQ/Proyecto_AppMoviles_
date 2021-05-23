@@ -21,10 +21,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
           </Grid.RowDefinitions>
-          <Label
+          <Label x:Name="lblUsuario"
               Grid.Column="1"
               Grid.Row="2"
-              Text="NOMBRE DE USUARIO"
+              Text=""
               Style="{DynamicResource SubtitleStyle}"/>
                 </Grid>
       </ListView.Header>

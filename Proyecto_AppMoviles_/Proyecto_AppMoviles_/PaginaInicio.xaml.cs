@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +14,12 @@ namespace Proyecto_AppMoviles_
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaInicio : FlyoutPage
     {
-        public PaginaInicio()
+        private int id;
+
+        public PaginaInicio(int pk)
         {
             InitializeComponent();
+            id = pk;
             FlyoutPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 
@@ -27,22 +32,22 @@ namespace Proyecto_AppMoviles_
             switch (item.Id)
             {
                 case 0:
-                    Detail = new NavigationPage(new PaginaInicioDetail());
+                    Detail = new NavigationPage(new PaginaInicioDetail()); //inicio
                     break;
                 case 1:
-                    Detail = new NavigationPage(new RegistroPerfil());
+                    Detail = new NavigationPage(new RegistroPerfil(id)); //perfil
                     break;
                 case 2:
-                    Detail = new NavigationPage(new PaginaCitas());
+                    Detail = new NavigationPage(new PaginaCitas(id)); //citas
                     break;
                 /*case 2:
                     Detail = new NavigationPage(new PaginaPagos(1));
                     break;*/
                 case 3:
-                    Detail = new NavigationPage(new PaginaContacto());
+                    Detail = new NavigationPage(new PaginaContacto()); //contacto
                     break;
                 case 4:
-                    await App.Current.MainPage.Navigation.PopToRootAsync(true);
+                    await App.Current.MainPage.Navigation.PopToRootAsync(true); //Cerrar sesión
                     break;
             }
 
@@ -50,5 +55,6 @@ namespace Proyecto_AppMoviles_
 
             FlyoutPage.ListView.SelectedItem = null;
         }
+
     }
 }

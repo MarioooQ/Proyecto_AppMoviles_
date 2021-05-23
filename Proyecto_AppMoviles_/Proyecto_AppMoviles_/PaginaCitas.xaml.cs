@@ -12,7 +12,7 @@ namespace Proyecto_AppMoviles_
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaCitas : ContentPage
     {
-        public PaginaCitas()
+        public PaginaCitas(int id)
         {
             InitializeComponent();
 

@@ -88,11 +88,10 @@ namespace Proyecto_AppMoviles_
                     user = JsonConvert.DeserializeObject<User>(userJson);
                 }
 
-                if (user != null)
+                /*if (user != null)
                 {
                     App.Current.MainPage = new NavigationPage(new RegistroPerfil());
-
-                }
+                }*/
 
                 //await store.SaveAsync(account = e.Account, AppConstant.Constants.AppName);
                 await DisplayAlert("Email address", user.Email, "OK");

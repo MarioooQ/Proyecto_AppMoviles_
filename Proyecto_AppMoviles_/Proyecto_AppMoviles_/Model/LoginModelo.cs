@@ -6,9 +6,9 @@ namespace Proyecto_AppMoviles_.Model
 {
     class LoginModelo
     {
-        private string usuario { get; set; }
-
-        private string contrasena { get; set; }
+        public int pk_usuario { get; set; }
+        public string usuario { get; set; }
+        public string contrasena { get; set; }
 
     }
 }

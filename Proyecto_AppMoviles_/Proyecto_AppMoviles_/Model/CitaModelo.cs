@@ -6,11 +6,11 @@ namespace Proyecto_AppMoviles_.Model
 {
     class CitaModelo
     {
-        private int PK_cita;
-        private int PK_paciente;
-        private string fechaCita; //datetime
-        private string razon;
-        private string pago; //blob
-        bool estado;
+        public int PK_Cita;
+        public int PK_Paciente;
+        public string fechaCita; //datetime
+        public string razon;
+        public string pago; //blob
+        public bool estado;
     }
 }

@@ -20,8 +20,9 @@ namespace Proyecto_AppMoviles_
         public PaginaInicioFlyout()
         {
             InitializeComponent();
-
             BindingContext = new PaginaInicioFlyoutViewModel();
+            
+            lblUsuario.Text = "";
             ListView = MenuItemsListView;
         }
 
