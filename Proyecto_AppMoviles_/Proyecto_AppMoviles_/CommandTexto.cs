@@ -11,10 +11,12 @@ namespace Proyecto_AppMoviles_
     {
         public ICommand TapRecuperar { get; } = new Command(async () =>
         {
+            //await App.Current.MainPage.DisplayAlert("", DateTime.Today.ToString(),"ok");
             await App.Current.MainPage.DisplayAlert("Texto presionado", "En desarrollo", "ok");
         });
         public ICommand TapRegistro { get; } = new Command(async () =>
         {
+            
             await App.Current.MainPage.Navigation.PushAsync(new PaginaRegistro());
         });
     }

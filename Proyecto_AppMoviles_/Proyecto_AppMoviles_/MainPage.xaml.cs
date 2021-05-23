@@ -34,7 +34,7 @@ namespace Proyecto_AppMoviles_
 
             try
             {
-                if (_postLogin.Any(i => i.usuario == txtUsuario.Text && i.contrasena == txtContrasena.Text))
+                if (_postLogin.Any(i => i.usuario == txtUsuario.Text && i.contrasena == txtContrasena.Text)==true)
                 {
                     await App.Current.MainPage.Navigation.PushAsync(new PaginaInicio(_postLogin.Single(i => i.usuario == txtUsuario.Text).pk_usuario));
                 }
@@ -48,6 +48,5 @@ namespace Proyecto_AppMoviles_
                 await this.DisplayAlert("Error", "Error " + ex.Message, "ok");
             }
         }
-
     }
 }

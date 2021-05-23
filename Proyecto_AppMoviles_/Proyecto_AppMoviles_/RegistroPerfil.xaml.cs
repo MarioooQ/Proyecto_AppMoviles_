@@ -19,6 +19,7 @@ namespace Proyecto_AppMoviles_
         private int id;
         private static string UrlUsuario = "http://192.168.100.4/moviles/postPaciente.php?PK_USUARIO=";
         private readonly HttpClient client = new HttpClient();
+        private ObservableCollection<Proyecto_AppMoviles_.Model.PacienteModelo> _postPacienteBDD;
         public RegistroPerfil(int pk)
         {
             InitializeComponent();
@@ -26,23 +27,37 @@ namespace Proyecto_AppMoviles_
             this.dpFechaNacimiento.MaximumDate=DateTime.Today;
             this.Title = "Perfil";
             estadoInicial(true);
-            llenarPerfil();
+            inicio();
         }
 
+        private async void inicio()
+        {
+            var content = await client.GetStringAsync("http://192.168.100.4/moviles/postPaciente.php");
+            List <Proyecto_AppMoviles_.Model.PacienteModelo> posts = JsonConvert.DeserializeObject<List<Proyecto_AppMoviles_.Model.PacienteModelo>>(content);
+            _postPacienteBDD = new ObservableCollection<Proyecto_AppMoviles_.Model.PacienteModelo>(posts);
+
+            if (_postPacienteBDD.Any(i => i.PK_Usuario == id)==true)
+            {
+                llenarPerfil();
+            }
+            else
+            {
+                crearPerfil();
+            }
+        }
         private async void llenarPerfil()
         {
-            
-            var content = await client.GetStringAsync(UrlUsuario+id.ToString());
 
+            var content = await client.GetStringAsync(UrlUsuario + id.ToString());
             var _postPaciente = JsonConvert.DeserializeObject<Proyecto_AppMoviles_.Model.PacienteModelo>(content);
 
-            txtNombre.Text = _postPaciente.nombre ;
+            txtNombre.Text = _postPaciente.nombre;
             txtApellido.Text = _postPaciente.apellido;
             txtIdentificacion.Text = _postPaciente.identificacion;
-            
+
             //DateTime fecha=Convert.ToDateTime(_postPaciente.fechaNacimiento); //conversion directa
 
-            dpFechaNacimiento.Date=Convert.ToDateTime(_postPaciente.fechaNacimiento);
+            dpFechaNacimiento.Date = Convert.ToDateTime(_postPaciente.fechaNacimiento);
 
             switch (_postPaciente.genero)
             {
@@ -65,10 +80,27 @@ namespace Proyecto_AppMoviles_
             txtEFC.Text = _postPaciente.ec_s;
 
         }
+        private void crearPerfil()
+        {
+            string cadena = "http://192.168.100.4/moviles/postPaciente.php";
+            WebClient cliente = new WebClient();
+            var parametros = new System.Collections.Specialized.NameValueCollection();
+            parametros.Add("PK_USUARIO", id.ToString());
+            parametros.Add("NOMBRE", " ");
+            parametros.Add("APELLIDO", " ");
+            parametros.Add("IDENTIFICACION", " ");
+            parametros.Add("FECHANACIMIENTO", DateToString(DateTime.Now));
+            parametros.Add("DIRECCION", " ");
+            parametros.Add("GENERO", " ");
+            parametros.Add("TELEFONO", " ");
+            parametros.Add("ALERGIAS", " ");
+            parametros.Add("EC_S", "");
 
+            cliente.UploadValues(cadena, "POST", parametros);
+        }
         private void btnEditarPerfil_Clicked(object sender, EventArgs e)
         {
-            llenarPerfil();
+            //llenarPerfil(); //Para comprobar el cambio en la base
             estadoInicial(false);
         }
 
@@ -79,38 +111,32 @@ namespace Proyecto_AppMoviles_
             {
                 var content = await client.GetStringAsync(UrlUsuario + id.ToString());
                 var _postPaciente = JsonConvert.DeserializeObject<Proyecto_AppMoviles_.Model.PacienteModelo>(content);
+                string cadena = UrlUsuario + id.ToString();
+                WebClient cliente = new WebClient();
 
-                if (_postPaciente.PK_Usuario==id)
-                {
-                    string cadena = "http://192.168.100.4/moviles/postPaciente.php?PK_USUARIO=" + id.ToString();
-                    WebClient cliente = new WebClient();
-                    var parametros = new System.Collections.Specialized.NameValueCollection();
-                    parametros.Add("NOMBRE", txtNombre.Text);
-                    parametros.Add("APELLIDO", txtApellido.Text);
-                    parametros.Add("IDENTIFICACION", txtIdentificacion.Text);
-                    parametros.Add("FECHANACIMIENTO", DateToString(dpFechaNacimiento.Date));
-                    parametros.Add("DIRECCION", txtDireccion.Text);
-                    parametros.Add("GENERO", Genero(pkrGenero.SelectedIndex).ToString());
-                    parametros.Add("TELEFONO", txtTelefono.Text);
-                    parametros.Add("ALERGIAS", txtAlergias.Text);
-                    parametros.Add("EC_S", txtEFC.Text);
+                var parametros = new System.Collections.Specialized.NameValueCollection();
+                parametros.Add("NOMBRE", txtNombre.Text);
+                parametros.Add("APELLIDO", txtApellido.Text);
+                parametros.Add("IDENTIFICACION", txtIdentificacion.Text);
+                parametros.Add("FECHANACIMIENTO", DateToString(dpFechaNacimiento.Date));
+                parametros.Add("DIRECCION", txtDireccion.Text);
+                parametros.Add("GENERO", Genero(pkrGenero.SelectedIndex).ToString());
+                parametros.Add("TELEFONO", txtTelefono.Text);
+                parametros.Add("ALERGIAS", txtAlergias.Text);
+                parametros.Add("EC_S", txtEFC.Text);
 
-                    cadena += "&NOMBRE=" + txtNombre.Text;
-                    cadena += "&APELLIDO=" + txtApellido.Text;
-                    cadena += "&IDENTIFICACION=" + txtIdentificacion.Text;
-                    cadena += "&FECHANACIMIENTO=" + DateToString(dpFechaNacimiento.Date);
-                    cadena += "&DIRECCION=" + txtDireccion.Text;
-                    cadena += "&GENERO=" + Genero(pkrGenero.SelectedIndex).ToString();
-                    cadena += "&TELEFONO=" + txtTelefono.Text;
-                    cadena += "&ALERGIAS=" + txtAlergias.Text;
-                    cadena += "&EC_S=" + txtEFC.Text;
+                cadena += "&NOMBRE=" + txtNombre.Text;
+                cadena += "&APELLIDO=" + txtApellido.Text;
+                cadena += "&IDENTIFICACION=" + txtIdentificacion.Text;
+                cadena += "&FECHANACIMIENTO=" + DateToString(dpFechaNacimiento.Date);
+                cadena += "&DIRECCION=" + txtDireccion.Text;
+                cadena += "&GENERO=" + Genero(pkrGenero.SelectedIndex).ToString();
+                cadena += "&TELEFONO=" + txtTelefono.Text;
+                cadena += "&ALERGIAS=" + txtAlergias.Text;
+                cadena += "&EC_S=" + txtEFC.Text;
 
-                    cliente.UploadValues(cadena, "PUT", parametros);
-                }
-                else
-                {
+                cliente.UploadValues(cadena, "PUT", parametros);
 
-                }
             }
             catch (Exception ex)
             {
@@ -163,5 +189,6 @@ namespace Proyecto_AppMoviles_
             btnActualizar.IsVisible = !estado;
             btnEditarPerfil.IsVisible = estado;
         }
+
     }
 }
