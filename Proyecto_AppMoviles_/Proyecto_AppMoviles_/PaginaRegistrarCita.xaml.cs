@@ -12,10 +12,12 @@ namespace Proyecto_AppMoviles_
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaRegistrarCita : ContentPage
     {
-        public PaginaRegistrarCita()
+        private int id;
+        public PaginaRegistrarCita(int pk)
         {
             InitializeComponent();
             Title = "Registrar cita";
+            id = pk;
 
         }
 
@@ -24,9 +26,9 @@ namespace Proyecto_AppMoviles_
 
         }
 
-        private void btnRegresar_Clicked(object sender, EventArgs e)
+        private async void btnRegresar_Clicked(object sender, EventArgs e)
         {
-
+            await this.Navigation.PopAsync();
         }
     }
 }

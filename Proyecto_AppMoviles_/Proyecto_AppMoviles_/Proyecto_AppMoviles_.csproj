@@ -19,11 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="View\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="RegistroPerfil.xaml.cs">
       <DependentUpon>RegistroPerfil.xaml</DependentUpon>
     </Compile>
