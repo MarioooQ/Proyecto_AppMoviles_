@@ -42,15 +42,17 @@
                              BorderWidth="1.2"/>
             </Grid>
 
-            <ListView x:Name="lvPaginaCitas" 
-                            SelectedItem="OnSelection" 
-                            ItemsSource="{Binding _postCitas}">
+            <ListView x:Name="lvPaginaCitas"
+                      ItemSelected="OnSelection"
+                      ItemsSource="{Binding _postCitas}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label x:Name="lblPK"
+                                <Label x:Name="lblFechaCita"
                                    Text="{Binding fechaCita}"/>
+                                <Label x:Name="lblRazon"
+                                       Text="{Binding razon}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

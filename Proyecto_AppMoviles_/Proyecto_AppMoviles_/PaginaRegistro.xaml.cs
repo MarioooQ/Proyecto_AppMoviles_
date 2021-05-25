@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Auth;
@@ -88,11 +89,6 @@ namespace Proyecto_AppMoviles_
                     user = JsonConvert.DeserializeObject<User>(userJson);
                 }
 
-                /*if (user != null)
-                {
-                    App.Current.MainPage = new NavigationPage(new RegistroPerfil());
-                }*/
-
                 //await store.SaveAsync(account = e.Account, AppConstant.Constants.AppName);
                 await DisplayAlert("Email address", user.Email, "OK");
             }
@@ -109,9 +105,28 @@ namespace Proyecto_AppMoviles_
             Debug.WriteLine("Authentication error: " + e.Message);
         }
 
-        private void btnRegistar_Clicked(object sender, EventArgs e)
+        private async void btnRegistar_Clicked(object sender, EventArgs e)
         {
+            if(txtContrasena.Text == txtConfirmar.Text)
+            {
+                string cadena = "http://192.168.100.4/moviles/postLogin.php";
+                WebClient cliente = new WebClient();
 
+                var parametros = new System.Collections.Specialized.NameValueCollection();
+
+                parametros.Add("USUARIO", txtUsuario.Text);
+                parametros.Add("CONTRASENA", txtContrasena.Text);
+
+                cliente.UploadValues(cadena, "POST", parametros);
+
+                await this.DisplayAlert("¡Usuario ingresado con exito!", "Inicie sesión con su nueva cuenta", "Aceptar");
+                await this.Navigation.PopAsync();
+            }
+            else
+            {
+                await this.DisplayAlert("Error", "Las contraseñas no son iguales", "Aceptar");
+                txtConfirmar.Text = null;
+            }
         }
     }
 }

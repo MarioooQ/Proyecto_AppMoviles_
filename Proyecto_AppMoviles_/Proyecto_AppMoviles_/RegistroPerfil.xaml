@@ -120,7 +120,7 @@
                            Grid.Column="1"
                            Grid.Row="6"
                            Keyboard="Text"
-                           Placeholder="Aquí va con mapa" />
+                           Placeholder="Dirección" />
 
                     <!--Octava fila -->
                     <Image Grid.Column="0"

@@ -48,5 +48,10 @@ namespace Proyecto_AppMoviles_
                 await this.DisplayAlert("Error", "Error " + ex.Message, "ok");
             }
         }
+        protected async override void OnAppearing()
+        {
+            txtUsuario.Text=null;
+            txtContrasena.Text=null;
+        }
     }
 }

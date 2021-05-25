@@ -16,7 +16,7 @@ namespace Proyecto_AppMoviles_
     public partial class PaginaCitas : ContentPage
     {
         private int idUsuario;
-        private int idPaciente;
+        private string idCita;
         Model.PacienteModelo _postPaciente;
 
         /*************Paciente*****************/
@@ -37,12 +37,20 @@ namespace Proyecto_AppMoviles_
             get();
         }
 
-        private async void get()
+        private async void get() //Se puede optimizar para que no consulte toda la tabla
         {
-            var content = await clientPaciente.GetStringAsync(UrlPaciente);
-            List<Proyecto_AppMoviles_.Model.CitaModelo> posts = JsonConvert.DeserializeObject<List<Proyecto_AppMoviles_.Model.CitaModelo>>(content);
-            _postCitas = new ObservableCollection<Proyecto_AppMoviles_.Model.CitaModelo>(posts);
-            lvPaginaCitas.ItemsSource = _postCitas.Where(i => i.PK_Paciente == 1);
+            try
+            {
+                var content = await clientPaciente.GetStringAsync(UrlPaciente);
+                List<Proyecto_AppMoviles_.Model.CitaModelo> posts = JsonConvert.DeserializeObject<List<Proyecto_AppMoviles_.Model.CitaModelo>>(content);
+                _postCitas = new ObservableCollection<Proyecto_AppMoviles_.Model.CitaModelo>(posts);
+                lvPaginaCitas.ItemsSource = _postCitas.Where(i => i.PK_Paciente == _postPaciente.PK_Paciente);
+            }
+            catch(Exception ex)
+            {
+                await this.DisplayAlert("Error", ex.Message,"ok");
+            }
+
         }
 
         private async void VerificarPaciente()
@@ -50,7 +58,7 @@ namespace Proyecto_AppMoviles_
             var content = await clientUsuario.GetStringAsync(UrlUsuario);
             List<Proyecto_AppMoviles_.Model.PacienteModelo> posts = JsonConvert.DeserializeObject<List<Proyecto_AppMoviles_.Model.PacienteModelo>>(content);
             _postPacientes = new ObservableCollection<Proyecto_AppMoviles_.Model.PacienteModelo>(posts);
-            _postPaciente = posts.Single(i => i.PK_Usuario == idUsuario);
+            _postPaciente = _postPacientes.Single(i => i.PK_Usuario == idUsuario);
            
             if (_postPacientes.Any(i => i.PK_Usuario == idUsuario) == false)
             {
@@ -66,37 +74,44 @@ namespace Proyecto_AppMoviles_
                 }
             }
         }
+        void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            var citaModelo = (Model.CitaModelo)e.SelectedItem;
+            idCita = citaModelo.PK_Cita.ToString();
+        }
 
         private async void btnAgendarCita_Clicked(object sender, EventArgs e)
         {
             VerificarPaciente();
             if ((_postPaciente.nombre == " ") == false || (_postPaciente.identificacion == " ") == false || ((_postPaciente.telefono == " ") == false))
             {
-                idPaciente = _postPaciente.PK_Paciente;
-                await App.Current.MainPage.Navigation.PushAsync(new PaginaRegistrarCita(idPaciente));
+                await App.Current.MainPage.Navigation.PushAsync(new PaginaRegistrarCita(_postPaciente.PK_Paciente));
             }
-
-        }
-
-        void OnSelection(object sender, SelectedItemChangedEventArgs e)
-        {
-
         }
 
         private async void btnPagar_Clicked(object sender, EventArgs e)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new PaginaPagos(idPaciente));
+            await App.Current.MainPage.Navigation.PushAsync(new PaginaPagos(idCita));
         }
 
         private async void btnEliminar_Clicked(object sender, EventArgs e)
         {
-            string opcion = await App.Current.MainPage.DisplayPromptAsync("Eliminar", "¿Seguro desea eliminar su cita", "Aceptar", "Cancelar");
+            string opcion = await App.Current.MainPage.DisplayActionSheet("¿Seguro desea eliminar su cita?", "Aceptar", "Cancelar");
 
             if (opcion.Equals("Aceptar"))
             {
-
+                await clientPaciente.DeleteAsync(UrlPaciente+"?PK_CITA="+idCita);
+                VerificarPaciente();
+                get();
             }
 
         }
+
+        protected async override void OnAppearing()
+        {
+            VerificarPaciente();
+            get();
+        }
+
     }
 }

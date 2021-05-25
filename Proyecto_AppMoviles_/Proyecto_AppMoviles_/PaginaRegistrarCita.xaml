@@ -13,6 +13,7 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
 
                 </Grid.RowDefinitions>
 
@@ -47,9 +48,12 @@
                 <Image Source="reloj.png"
                        Grid.Column="0"
                        Grid.Row="1"/>
-                <Entry Placeholder="Razón de la cita"
+                
+                <Entry x:Name="txtRazon"
+                       Placeholder="Razón de la cita"
                        Grid.Row="2"
                        Grid.Column="1"/>
+                
                 <Image Source="carpeta.png"
                        Grid.Row="2"
                        Grid.Column="0"/>

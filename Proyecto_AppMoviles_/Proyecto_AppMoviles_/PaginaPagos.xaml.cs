@@ -11,7 +11,7 @@ namespace Proyecto_AppMoviles_
 {
     public partial class PaginaPagos : ContentPage
     {
-        public PaginaPagos(int PK_Cita)
+        public PaginaPagos(string PK_Cita)
         {
             InitializeComponent();
         }
