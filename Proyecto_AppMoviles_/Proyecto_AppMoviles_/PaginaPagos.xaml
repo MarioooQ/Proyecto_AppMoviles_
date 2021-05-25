@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Proyecto_AppMoviles_.PaginaPagos"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout>
             <Image Source="LogoCTLH.png" HorizontalOptions="Center" VerticalOptions="Start"/>
@@ -30,6 +30,7 @@
                         Grid.Row="0"
                         Grid.Column="1"/>
             </Grid>
+            <Image x:Name="imgPago"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
